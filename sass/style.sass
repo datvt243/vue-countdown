@@ -12,7 +12,7 @@ hr
   border: 0
     bottom: 1px solid rgba(255,255,255,.1)
 
-.alert
+.alert-basic
   background-color: rgba(60, 66, 74, .2)
 
 .navbar 
@@ -113,3 +113,24 @@ hr
   &:focus
     background-color: transparent
     color: #fff
+
+.dropdown-enter-active,
+.dropdown-leave-active 
+  transition: all .3s
+
+.dropdown-enter,
+.dropdown-leave-to 
+  opacity: 0
+  transform: translateY(10px)
+
+.slide-fade-enter-active 
+  transition: all .3s ease
+
+.slide-fade-leave-active 
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0)
+
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ 
+  transform: translateX(10px)
+  opacity: 0
+

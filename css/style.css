@@ -11,7 +11,7 @@ hr {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.alert {
+.alert-basic {
   background-color: rgba(60, 66, 74, 0.2);
 }
 
@@ -128,5 +128,28 @@ hr {
   background-color: transparent;
   color: #fff;
 }
+
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: all 0.3s;
+}
+
+.dropdown-enter,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+/* .slide-fade-leave-active below version 2.1.8 */
+ * transform: translateX(10px)
+ * opacity: 0 */
 
 /*# sourceMappingURL=style.css.map */

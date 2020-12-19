@@ -2,16 +2,12 @@ Vue.component("countdown", {
   data: function () {
     return {}
   },
-  props: ["date"],
-  // props: {
-  //   year: { type: [String, Number], default: 2021 },
-  //   month: { type: [String, Number], default: 1 },
-  //   day: { type: [String, Number], default: 1 },
-  //   hour: { type: [String, Number], default: 0 },
-  //   minute: { type: [String, Number], default: 0 },
-  //   second: { type: [String, Number], default: 0 },
-  //   millisecond: { type: [String, Number], default: 0 }
-  // },
+  props: {
+    date: {
+      type: String,
+      default: "2021-12-30"
+    }
+  },
   data() {
     return {
       displayDays: 0,
@@ -49,6 +45,7 @@ Vue.component("countdown", {
       return number < 10 ? "0" + number : number;
     },
     setCountdown() {
+      this.expired = false;
       const timer = setInterval( () => {
         const dayEnd = this._end;
         const dayNow = new Date().getTime();
@@ -86,39 +83,43 @@ Vue.component("countdown", {
     }
   },
   template: `
-    <div class="countdown-inner" v-if="loaded">
-      <div class="clearfix">
-        <p v-if="!expired">Thời gian còn</p>
-        <p v-else>Time out</p>
+  <div class="clearfix">
+    <transition name="dropdown" mode="out-in">
+      <div class="countdown-inner" v-if="loaded">
+        <div class="clearfix">
+          <p v-if="!expired">Thời gian còn</p>
+          <p class="text-danger" v-else>Time out</p>
+        </div>
+        <hr />
+        <div class="d-flex justify-content-center countdown-time">
+          <div class="col-auto">
+            <p class="number">{{ displayDays }}</p>
+            <p class="text">ngày</p>
+          </div>
+          <div class="col-auto">
+            <p class="number">:</p>
+          </div>
+          <div class="col-auto">
+            <p class="number">{{ displayHours }}</p>
+            <p class="text">giờ</p>
+          </div>
+          <div class="col-auto">
+            <p class="number">:</p>
+          </div>
+          <div class="col-auto">
+            <p class="number">{{ displayMinus }}</p>
+            <p class="text">phút</p>
+          </div>
+          <div class="col-auto">
+            <p class="number">:</p>
+          </div>
+          <div class="col-auto">
+            <p class="number">{{ displaySeconds }}</p>
+            <p class="text">giây</p>
+          </div>
+        </div>
       </div>
-      <hr />
-      <div class="d-flex justify-content-center countdown-time">
-        <div class="col-auto">
-          <p class="number">{{ displayDays }}</p>
-          <p class="text">ngày</p>
-        </div>
-        <div class="col-auto">
-          <p class="number">:</p>
-        </div>
-        <div class="col-auto">
-          <p class="number">{{ displayHours }}</p>
-          <p class="text">giờ</p>
-        </div>
-        <div class="col-auto">
-          <p class="number">:</p>
-        </div>
-        <div class="col-auto">
-          <p class="number">{{ displayMinus }}</p>
-          <p class="text">phút</p>
-        </div>
-        <div class="col-auto">
-          <p class="number">:</p>
-        </div>
-        <div class="col-auto">
-          <p class="number">{{ displaySeconds }}</p>
-          <p class="text">giây</p>
-        </div>
-      </div>
-    </div>
+    </transition>
+  </div>
   `
 })
