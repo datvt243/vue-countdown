@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="./favicon.ico">
+  <title>Vue Countdown</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <!-- ./ Load Google Font-->
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ['Roboto:400,500,700']
+      }
+    });
+  </script>
+</head>
+<body>
+  <noscript>
+    <strong>We're sorry but Vue doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+  </noscript>
+  <div id="app" class="app-inner">
+    <v-header></v-header>
+    <main class="main-inner">
+      <div class="container">
+        <div class="clearfix">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-auto">
+              <p>
+                Chọn thời gian:
+              </p>
+            </div>
+            <div class="col-auto">
+              <form>
+                <div class="mb-3">
+                  <input type="date" class="form-control" v-model="date" />
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="text-center mt-3 mb-3">
+            <p class="d-inline-block small alert mb-0" role="alert">
+              {{ showDate }}
+            </p>
+          </div>
+        </div>
+        <div class="flex-content">
+          <Countdown :date="date"></Countdown>
+        </div>
+      </div>
+    </main>
+    <v-footer></v-footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="./layout/header.js"></script>
+  <script src="./layout/footer.js"></script>
+  <script src="./components/countdown.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

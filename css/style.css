@@ -1,0 +1,132 @@
+body {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  background-color: #1c1e1f;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.alert {
+  background-color: rgba(60, 66, 74, 0.2);
+}
+
+.navbar {
+  box-shadow: none;
+  background-color: #3c424a;
+  border-radius: 4px;
+  color: #fff;
+  padding: 10px 10px;
+}
+
+.app-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(100vh);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.header-inner {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.main-inner {
+  flex-grow: 1;
+  position: relative;
+}
+
+.footer-inner {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  margin-top: 30px;
+}
+.footer-inner .container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
+}
+
+.header-inner .logo-img {
+  width: 30px;
+}
+.header-inner .logo {
+  font-size: 20px;
+  padding-left: 10px;
+  margin: 0;
+}
+@media screen and (max-width: 576px) {
+  .header-inner .logo-img {
+    width: 20px;
+  }
+  .header-inner .logo {
+    font-size: 14px;
+  }
+}
+
+.main-inner {
+  margin-top: 30px;
+}
+
+.countdown-inner {
+  text-align: center;
+  font-size: 22px;
+}
+.countdown-time {
+  font-size: 80px;
+  line-height: 1;
+}
+.countdown-time p {
+  margin-bottom: 0;
+}
+.countdown-time .number {
+  font-weight: 500;
+}
+.countdown-time .text {
+  font-size: 0.4em;
+}
+@media screen and (max-width: 576px) {
+  .countdown-inner {
+    font-size: 16px;
+  }
+  .countdown-inner .row, .countdown-inner .d-flex {
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+  .countdown-inner .row > *, .countdown-inner .d-flex > * {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .countdown-time {
+    font-size: 40px;
+  }
+}
+
+.flex-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.form-control {
+  background-color: transparent;
+  color: #fff;
+  border-color: #666;
+}
+.form-control:focus {
+  background-color: transparent;
+  color: #fff;
+}
+
+/*# sourceMappingURL=style.css.map */

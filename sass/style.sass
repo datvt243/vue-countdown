@@ -1,0 +1,115 @@
+@charset "utf-8"
+
+body
+  color: #fff
+  font:
+    family: 'Roboto', sans-serif
+    weight: 400
+  line-height: 1.4
+  background-color: #1c1e1f
+
+hr
+  border: 0
+    bottom: 1px solid rgba(255,255,255,.1)
+
+.alert
+  background-color: rgba(60, 66, 74, .2)
+
+.navbar 
+  box-shadow: none
+  background-color: #3c424a
+  border-radius: 4px
+  color: #fff
+  padding: 10px 10px
+
+.app-inner
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  min-height: calc(100vh)
+  padding: 
+    top: 0
+    bottom: 0
+.header-inner 
+  padding:
+    top: 30px
+    bottom: 30px
+.main-inner 
+  flex-grow: 1
+  position: relative
+.footer-inner 
+  text-align: center
+  font-size: 12px
+  letter-spacing: .05em
+  margin-top: 30px
+  .container
+    padding:
+      top: 20px
+      bottom: 20px
+    border-top: .1rem solid rgba(255, 255, 255, .1)
+
+.header-inner
+  .logo-img
+    width: 30px
+  .logo
+    font-size: 20px
+    padding-left: 10px
+    margin: 0
+  @media screen and ( max-width: 576px )
+    .logo-img
+      width: 20px
+    .logo
+      font-size: 14px
+
+.main-inner
+  margin-top: 30px
+
+.countdown
+  
+  &-inner
+    text-align: center
+    font-size: 22px
+    
+  &-time
+    font-size: 80px
+    line-height: 1
+    p
+      margin-bottom: 0
+    .number
+      font-weight: 500
+    .text
+      font-size: .4em
+
+  @media screen and ( max-width: 576px )
+
+    &-inner
+      font-size: 16px
+      .row, .d-flex
+        margin:
+          left: -5px
+          right: -5px
+        > *
+          padding: 
+            left: 5px
+            right: 5px
+    
+    &-time
+      font-size: 40px
+
+.flex-content
+  height: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  padding: 
+    top: 30px
+    bottom: 30px
+
+.form-control
+  background-color: transparent
+  color: #fff
+  border-color: #666
+  &:focus
+    background-color: transparent
+    color: #fff
