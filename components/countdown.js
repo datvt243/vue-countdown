@@ -5,7 +5,7 @@ Vue.component("countdown", {
   props: {
     date: {
       type: String,
-      default: "2021-12-30"
+      default: "2022-02-01"
     }
   },
   data() {

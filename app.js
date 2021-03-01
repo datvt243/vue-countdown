@@ -1,7 +1,7 @@
 var app = new Vue({
   el: "#app",
   data: {
-    date: "2021-02-12"
+    date: "2022-02-01"
   },
   computed: {
     showDate() {
