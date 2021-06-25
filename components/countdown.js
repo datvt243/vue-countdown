@@ -35,9 +35,13 @@ Vue.component("countdown", {
       return this._hours * 24;
     },
     _end() {
-      return new Date(
-        this.date
-      ).getTime();
+      if(!!this.date) {
+        return new Date(
+          this.date
+        ).getTime();
+      } else {
+        return new Date()
+      }
     }
   },
   methods: {
@@ -46,6 +50,7 @@ Vue.component("countdown", {
     },
     setCountdown() {
       this.expired = false;
+      this.loaded = false;
       const timer = setInterval( () => {
         const dayEnd = this._end;
         const dayNow = new Date().getTime();
@@ -78,7 +83,9 @@ Vue.component("countdown", {
   },
   watch: {
     date() {
+      
       this.setCountdown();
+      
       // this.$forceUpdate()
     }
   },
