@@ -35,7 +35,7 @@ Vue.component("countdown", {
       return this._hours * 24;
     },
     _end() {
-      if(!!this.date) {
+      if(this.date) {
         return new Date(
           this.date
         ).getTime();
@@ -49,45 +49,46 @@ Vue.component("countdown", {
       return number < 10 ? "0" + number : number;
     },
     setCountdown() {
-      this.expired = false;
-      this.loaded = false;
+      let vm = this;
+      vm.expired  = false;
+      vm.loaded   = false;
       const timer = setInterval( () => {
-        const dayEnd = this._end;
-        const dayNow = new Date().getTime();
-        const distance = dayEnd - dayNow;
+        const dayEnd    = vm._end;
+        const dayNow    = new Date().getTime();
+        const distance  = dayEnd - dayNow;
 
         if (distance < 0) {
           clearInterval(timer);
-          this.expired = true;
-          this.displayDays = this.formatNumber(0);
-          this.displayHours = this.formatNumber(0);
-          this.displayMinus = this.formatNumber(0);
-          this.displaySeconds = this.formatNumber(0);
+          vm.expired          = true;
+          vm.displayDays      = vm.formatNumber(0);
+          vm.displayHours     = vm.formatNumber(0);
+          vm.displayMinus     = vm.formatNumber(0);
+          vm.displaySeconds   = vm.formatNumber(0);
           return;
         }
 
-        const days = Math.floor(distance / this._days);
-        const hours = Math.floor((distance % this._days) / this._hours);
-        const minutes = Math.floor((distance % this._hours) / this._minutes);
-        const seconds = Math.floor((distance % this._minutes) / this._seconds);
+        const days          = Math.floor(distance / vm._days);
+        const hours         = Math.floor((distance % vm._days) / vm._hours);
+        const minutes       = Math.floor((distance % vm._hours) / vm._minutes);
+        const seconds       = Math.floor((distance % vm._minutes) / vm._seconds);
 
-        this.displayDays = this.formatNumber(days);
-        this.displayHours = this.formatNumber(hours);
-        this.displayMinus = this.formatNumber(minutes);
-        this.displaySeconds = this.formatNumber(seconds);
+        vm.displayDays      = vm.formatNumber(days);
+        vm.displayHours     = vm.formatNumber(hours);
+        vm.displayMinus     = vm.formatNumber(minutes);
+        vm.displaySeconds   = vm.formatNumber(seconds);
 
-        this.loaded = true
+        vm.loaded = true;
 
       }, 1000);
     }
   },
   watch: {
+
     date() {
-      
       this.setCountdown();
-      
       // this.$forceUpdate()
     }
+
   },
   template: `
   <div class="clearfix">
